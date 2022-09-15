@@ -8,3 +8,26 @@ pamatyti jo pateikto svorio kovertavimą į:
 Pastaba: atvaizdavimas turi būti matomas pateikus formą ir pateikiamas
 <div id="output"></div> viduje, bei turi turėti bent minimalų stilių;
 ------------------------------------------------------------------- */
+const enterNumber = document.getElementById('search');
+const form = document.querySelector('form');
+const output = document.getElementById('output');
+
+form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const kilogramAmount = enterNumber.value;
+    const amountPounds = convertToPounds(kilogramAmount);
+    const amountGrams = convertToGrams(kilogramAmount);
+    const amountOunces = convertToOunce(kilogramAmount);
+});
+
+const convertToPounds = (kg) => {
+    return kg * 2.2046
+};
+
+const convertToGrams = (kg) => {
+    return kg / 0.0010000
+}
+
+const convertToOunce = (kg) => {
+    return kg * 35.274
+}
