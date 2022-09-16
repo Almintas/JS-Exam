@@ -11,14 +11,7 @@ Pastaba: atvaizdavimas turi būti matomas pateikus formą ir pateikiamas
 const enterNumber = document.getElementById('search');
 const form = document.querySelector('form');
 const output = document.getElementById('output');
-
-form.addEventListener('submit', (event) => {
-    event.preventDefault();
-    const kilogramAmount = enterNumber.value;
-    const amountPounds = convertToPounds(kilogramAmount);
-    const amountGrams = convertToGrams(kilogramAmount);
-    const amountOunces = convertToOunce(kilogramAmount);
-});
+const button = document.getElementById('submit-btn');
 
 const convertToPounds = (kg) => {
     return kg * 2.2046
@@ -26,8 +19,30 @@ const convertToPounds = (kg) => {
 
 const convertToGrams = (kg) => {
     return kg / 0.0010000
-}
+};
 
 const convertToOunce = (kg) => {
     return kg * 35.274
-}
+};
+
+form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const kilogramAmount = enterNumber.value;
+    const amountPounds = convertToPounds(kilogramAmount);
+    const amountGrams = convertToGrams(kilogramAmount);
+    const amountOunces = convertToOunce(kilogramAmount);
+    
+    const pounds = document.createElement('h2');
+    pounds.textContent = `Pounds: ${amountPounds}`;
+    const grams = document.createElement('h2');
+    grams.textContent = `Grams: ${amountGrams}`;
+    const ounces = document.createElement('h2');
+    ounces.textContent = `Ounces: ${amountOunces}`;
+
+    output.append(pounds);
+    output.append(grams);
+    output.append(ounces);
+
+    output.style.paddingLeft = '205px';
+    output.style.backgroundColor = 'white';
+});
