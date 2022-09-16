@@ -39,6 +39,8 @@ const spawnElements = (users) => {
                 output.appendChild(imgElement);
 
                 deleteMessage.remove();
+
+                
             });
         });
 };
