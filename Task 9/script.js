@@ -9,3 +9,24 @@ budget: number
 Metodas: 
 wasExpensive() - jeigu filmo "budget" yra daugiau nei 100 000 000 mln USD, tada grąžins true, kitu atveju false. 
 ------------------------------------------------------------------------------------------------------ */
+
+
+class Movie {
+    constructor(title, director, budget) {
+        this.title = title;
+        this.director = director;
+        this.budget = budget;
+    }
+
+    wasExpensive() {
+        if (`${this.budget}` >= 100000000) {
+            return `Movie name is ${this.title}, Director is ${this.director}, and the budget was ${this.budget} mln USD`;
+        } else {
+            return 'Not so expensive'
+        }
+    }
+}
+
+let myMovie = new Movie('Avengers', 'Alfonsas', 150000000);
+
+console.log(myMovie.wasExpensive());
